@@ -1,3 +1,7 @@
+const navConf = require('../../config/navConf');
+const pluginConf = require('../../config/pluginsConf');
+const sidebarConf = require('../../config/sidebarConf/index.js');
+
 module.exports = {
     locales: {
         '/': {
@@ -7,41 +11,21 @@ module.exports = {
         },
     },
     head: [
-        ['link', { rel: 'icon', href: '/favicon.ico' }]
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
+        ['link', { rel: 'manifest', href: '/manifest.json' }],
     ],
     base: '/',
+    plugins: pluginConf,
     themeConfig: {
-      lastUpdated: '最后更新于',
+      lastUpdated: '上次更新',
       repo: 'Hewie8023/HewieBlog',
       docsDir: 'docs',
       docsBranch: 'master',
       editLinks: true,
-      editLinkText: '帮助我们改善此页面！',
+      editLinkText: '编辑文档~',
 
-      nav: [
-        { text: '主页', link: '/' },
-        { text: '关于', link: '/about/' },
-        { text: 'External', link: 'https://google.com' },
-      ],
-      sidebar: {
-        '/C++/': [
-          '',     /* /foo/ */
-          'cpp1',  /* /foo/one.html */
-          'cpp2'   /* /foo/two.html */
-        ],
-  
-        '/network/': [
-          '',      /* /bar/ */
-          'net01', /* /bar/three.html */
-          'net02'   /* /bar/four.html */
-        ],
-  
-        // fallback
-        '/': [
-          '',        /* / */
-          '/about/', /* /contact.html */
-        ]
-      },
+      nav: navConf,
+      sidebar: sidebarConf,
       sidebarDepth: 2,
     }
   }

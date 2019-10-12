@@ -1,0 +1,16 @@
+{
+    "name": "Hewie博客",
+    "short_name": "Hewie",
+    "description": "计算机校招面试、C++、算法、数据结构、操作系统、计算机网络、数据库、设计模式、Linux",
+    "theme_color": "#2196f3",
+    "icons": [
+        {
+            "src": "/4am.jpg",
+            "type": "image/jpg",
+            "start_url": "919*299"
+        }
+    ],
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "start_url": "index.html"
+}
