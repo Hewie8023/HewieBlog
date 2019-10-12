@@ -1,5 +1,7 @@
 # C++首页
 
-## C++二级标题
-
-### C++三级标题
+[Home](/) 
+[foo](/C++/) 
+[foo 标题锚点](/C++/#heading) 
+[foo - one](/C++/cpp1.md)
+[foo - two](/C++/cpp2.md)

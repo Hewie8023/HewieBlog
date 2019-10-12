@@ -8,3 +8,4 @@ Hewie Blog
 
 update。。。。。。。。。。。。。
 
+新增travis-ci

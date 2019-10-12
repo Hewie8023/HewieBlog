@@ -31,6 +31,8 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+docs/.vuepress/dist
+utils/filenames.js
 
 # Dependency directories
 node_modules/
@@ -63,3 +65,4 @@ typings/
 
 #secretKeyConf
 secretKeyConf.js
+
