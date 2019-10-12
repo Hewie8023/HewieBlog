@@ -1,0 +1,25 @@
+{
+  "name": "HewieBlog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": " bash deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hewie8023/HewieBlog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hewie8023/HewieBlog/issues"
+  },
+  "homepage": "https://github.com/Hewie8023/HewieBlog#readme",
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
