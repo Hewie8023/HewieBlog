@@ -26,7 +26,7 @@ export default ({pages})=> {
         var _gitalk = new Gitalk({
           clientID: secretKeyConf.clientID,
           clientSecret: secretKeyConf.clientSecret,
-          repo: 'Hewie8023.github.io', // 存储评论的仓库名字
+          repo: 'HewieBlog', // 存储评论的仓库名字
           owner: 'Hewie8023',
           admin: ['Hewie8023'],  //仓库的管理员，可以有多个
           id: decodeURI(path),      // 每个页面根据url生成对应的issue，保证页面之间的评论都是独立的
