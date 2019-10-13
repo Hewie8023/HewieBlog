@@ -1,5 +1,6 @@
 module.exports = [
     { text: '主页', link: '/' },
+    { text: '最新', link: '/newest/'},
     { 
         text : '面试',
         items:[
