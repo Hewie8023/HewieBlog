@@ -4,7 +4,7 @@ heroImage: /4am.jpg
 heroText: Hewie博客
 tagline: '种一棵树最好的时间是十年前，其次就是现在。'
 actionText: 开始阅读 →
-actionLink: /guide/
+actionLink: /introduce/
 features:
 - title: 前端进阶积累
   details: 在纷乱的前端娱乐圈，专注js基础，打磨核心竞争力，一通百通，无惧工具/框架变迁。
