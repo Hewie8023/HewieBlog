@@ -13,5 +13,21 @@ module.exports = {
     {
         'ga': secretKeyConf.ga
     },
+    'vuepress-plugin-comment':
+    {
+    choosen: 'gitalk', 
+    options: {
+            clientID: '1ac633784dc05033dcbf',
+            clientSecret: '5e54f71fc945383488483da46c62fb3b2a83bb4c',
+            repo: 'HewieBlog',
+            owner: 'Hewie8023',
+            admin: ['Hewie8023'],
+            id: '<%- frontmatter.commentid || frontmatter.permalink %>',      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false,  // Facebook-like distraction free mode
+            labels: ['Gitalk', 'Comment'],
+            title: '「评论」<%- frontmatter.title %>',
+            body: '<%- frontmatter.title %>：<%- window.location.origin %><%- frontmatter.to.path || window.location.pathname %>'
+        }
+    }
 
 };

@@ -10,7 +10,7 @@ export default ({
   setTimeout(() => {
     try {
       document && (() => {
-        getGitalk.call(this, siteData)
+        //getGitalk.call(this, siteData)
         copy()
       })()
     } catch (e) {
