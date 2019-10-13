@@ -26,5 +26,8 @@
     "@vuepress/plugin-pwa": "^1.0.0-rc.1",
     "vuepress": "^1.2.0",
     "vuepress-plugin-comment": "^0.7.0-beta.1"
+  },
+  "dependencies": {
+    "ejs": "^2.7.1"
   }
 }
