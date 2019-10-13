@@ -1,3 +1,5 @@
+const secretKeyConf = require('./secretKeyConf.js');
+
 module.exports = {
     '@vuepress/pwa':{
         serviceWorker: true,
@@ -9,7 +11,7 @@ module.exports = {
     '@vuepress/back-to-top' : true,
     '@vuepress/google-analytics':
     {
-        'ga': 'UA-149900822-1' // UA-00000000-0
+        'ga': secretKeyConf.ga
     },
 
 };
