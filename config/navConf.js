@@ -20,11 +20,8 @@ module.exports = [
                 {text: '程序员代码面试指南', link:'/algorithm/code_interview/'}
             ]},
             {text: '设计模式', items:[
-                {text: '原则', link:'/algorithm/design'},
-                {text: '创建型模式', link:'/algorithm/creative/'},
-                {text: '结构型模式', link:'/algorithm/structural/'},
-                {text: '行为型模式', link:'/algorithm/behavioral/'},
-            ]}
+                {text:'设计模式', link:'/algorithm/design_pattem/'},
+            ]},
         ]
     },
     {

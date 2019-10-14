@@ -30,7 +30,7 @@ footer: MIT Licensed | Copyright © 2018-present Hewie
 
 #### <Badge text="LPL官方解说娃娃评"  /> 韦神从来都是自认天下第一。
 
-## 冠军风采
+## 我们是冠军
 ![](https://raw.githubusercontent.com/Hewie8023/HewieBlog/master/docs/.vuepress/public/champion02.jpg)
 
 ![](https://raw.githubusercontent.com/Hewie8023/HewieBlog/master/docs/.vuepress/public/champion01.jpg)

@@ -6,7 +6,7 @@
 const { readdir, writeFile} = require('fs'); //读取路径，写文件名
 const { resolve } = require('path');//解决路径的问题
 
-const FOLDERPATH = 'D:\\HewieBlog\\docs\\network';
+const FOLDERPATH = 'D:\\HewieBlog\\docs\\algorithm\\design_pattem';
 
 readdir(FOLDERPATH, (err,files) => {
     let filenames = [];
