@@ -2,6 +2,15 @@ module.exports = [
     { text: '主页', link: '/' },
     { text: '介绍', link: '/introduce/'},
     { 
+        text: '大前端',
+        items: [
+            { text:'JavaScript', link:'/javascript/'},
+            { text:'ES6',link:'/es6/'},
+            { text:'Vue',link:'/vue/'},
+            { text:'小程序',link:'/mini_program/'},
+        ]
+    },
+    { 
         text : '面试',
         items:[
             {text: 'C++', link: '/cpp/'},
