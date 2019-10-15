@@ -33,6 +33,7 @@ module.exports = [
             ]},
         ]
     },
+    {text: '毕设', link:'/graduation/'},
     {
         text: "随手记",
         items: [
