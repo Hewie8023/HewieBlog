@@ -24,6 +24,8 @@ module.exports = {
       editLinks: true,
       editLinkText: '编辑文档~',
 
+      smoothScroll: true,
+
       nav: navConf,
       sidebar: sidebarConf,
       sidebarDepth: 2,
