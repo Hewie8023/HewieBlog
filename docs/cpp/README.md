@@ -20,6 +20,10 @@ title: README
 
 > [C++面向对象](https://www.rxwcv.cn/cpp/cpp2.html)
 
-> [C++11新特性](https://www.rxwcv.cn/cpp/cpp3.html)
+> [运算符重载](https://www.rxwcv.cn/cpp/cpp3.html)
 
-> [浅析STL](https://www.rxwcv.cn/cpp/cpp4.html)
+> [C++11新特性](https://www.rxwcv.cn/cpp/cpp4.html)
+
+> [C++11多线程](https://www.rxwcv.cn/cpp/cpp5.html)
+
+> [浅析STL](https://www.rxwcv.cn/cpp/cpp6.html)
