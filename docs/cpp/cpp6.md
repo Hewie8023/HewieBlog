@@ -23,7 +23,7 @@ title: 浅析STL
 
 ### 迭代器的分类
 `STL`中的迭代器可分为类：随机存取迭代器（`random-access-iterator`），双向存取迭代器(`bidirectional-access-iterator`)，前向迭代器(`forward iterator`)，输入迭代器(`input-iterator`)，输出迭代器(`output-iterator`)。它们之间的继承关系如下：
-```
+```cpp
 input-iterator
 output-iteartor    
 forward-iterator:output-iteartor , input-iterator
@@ -357,11 +357,11 @@ for (iter = dataMap.begin(); iter != dataMap.end(); )
 
 由性质4可以推出：一条路径上不能有两个毗连的红色节点。最短的可能路径都是黑色节点，最长的可能路径是交替的红色和黑色节点。又根据性质5，所有最长的路径都有相同数目的黑色节点，这就表明了没有路径能多于任何其他路径的两倍长。
 
-#### 红黑树的插入(待补充)
+#### 红黑树的插入 (待补充)
 
-#### 红黑树的删除(待补充)
+#### 红黑树的删除 (待补充)
 
-#### 红黑树的旋转(待补充)
+#### 红黑树的旋转 (待补充)
 
 ## 算法
 `STL`中的算法以迭代器为参数，通过作用于迭代器而达到处理容器数据的目的。所有的算法都前两个参数都是以对迭代器（`iterator`），通常称为`first`和`last`。事实上，算法所处理的迭代器范围为[`first`,`last`)，如果`first==last`则表明此范围为空。按照处理问题的不同，`STL`算法可分为四组，分别是：
