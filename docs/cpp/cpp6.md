@@ -22,7 +22,7 @@ title: 浅析STL
 迭代器不是指针，是类模板，表现的像指针。他只是模拟了指针的一些功能，重载了指针的一些操作符，`->`、`\*`、`++`、`--`等。迭代器封装了指针，是一个“可遍历`STL`（ `Standard Template Library`）容器内全部或部分元素”的对象，本质是封装了原生指针，是指针概念的一种提升（`lift`），提供了比指针更高级的行为，相当于一种智能指针，他可以根据不同类型的数据结构来实现不同的`++`，`--`等操作。迭代器返回的是对象引用而不是对象的值，所以`cout`只能输出迭代器使用*取值后的值而不能直接输出其自身。
 
 ### 迭代器的分类
-`STL`中的迭代器可分为类：随机存取迭代器（`random-access-iterator`），双向存取迭代器(`bidirectional-access-iterator`)，前向迭代器(`forward iterator`)，输入迭代器(`input-iterator`)，输出迭代器(`output-iterator`)。它们之间的继承关系如下：
+`STL`中的迭代器可分为：随机存取迭代器（`random-access-iterator`），双向存取迭代器(`bidirectional-access-iterator`)，前向迭代器(`forward iterator`)，输入迭代器(`input-iterator`)，输出迭代器(`output-iterator`)。它们之间的继承关系如下：
 ```cpp
 input-iterator
 output-iteartor    
