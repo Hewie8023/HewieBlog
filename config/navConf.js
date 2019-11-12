@@ -24,6 +24,7 @@ module.exports = [
         text: '算法修炼',
         items:[
             {text: '算法和数据结构', items:[
+                {text: '常用算法', link:'/algorithm/common/'},
                 {text: '剑指offer', link:'/algorithm/sword_offer/'},
                 {text: 'LeetCode', link:'/algorithm/leetcode/'},
                 {text: '程序员代码面试指南', link:'/algorithm/code_interview/'}
