@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>创建型模式 | Hewie博客</title>
+    <meta name="description" content="计算机校招面试、C++、算法、数据结构、操作系统、计算机网络、数据库、设计模式、Linux">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="/assets/css/0.styles.f7236f4b.css" as="style"><link rel="preload" href="/assets/js/app.ac521fa5.js" as="script"><link rel="preload" href="/assets/js/2.4dd89565.js" as="script"><link rel="preload" href="/assets/js/17.b20c0604.js" as="script"><link rel="preload" href="/assets/js/3.ee0ff96a.js" as="script"><link rel="prefetch" href="/assets/js/10.943e1298.js"><link rel="prefetch" href="/assets/js/11.844d23a5.js"><link rel="prefetch" href="/assets/js/12.ed43e128.js"><link rel="prefetch" href="/assets/js/13.2444cf3e.js"><link rel="prefetch" href="/assets/js/14.2ad2a3cc.js"><link rel="prefetch" href="/assets/js/15.47795ddd.js"><link rel="prefetch" href="/assets/js/16.9769fc6d.js"><link rel="prefetch" href="/assets/js/18.9a413d64.js"><link rel="prefetch" href="/assets/js/19.39c7f303.js"><link rel="prefetch" href="/assets/js/20.215c65d9.js"><link rel="prefetch" href="/assets/js/21.675270de.js"><link rel="prefetch" href="/assets/js/22.93a75383.js"><link rel="prefetch" href="/assets/js/23.40c80597.js"><link rel="prefetch" href="/assets/js/24.a19ae02c.js"><link rel="prefetch" href="/assets/js/25.b9413425.js"><link rel="prefetch" href="/assets/js/26.ec3f30ac.js"><link rel="prefetch" href="/assets/js/27.07f945a2.js"><link rel="prefetch" href="/assets/js/28.331d1cfb.js"><link rel="prefetch" href="/assets/js/29.c78f963f.js"><link rel="prefetch" href="/assets/js/30.8f923be4.js"><link rel="prefetch" href="/assets/js/31.ea9eee00.js"><link rel="prefetch" href="/assets/js/32.4b55062e.js"><link rel="prefetch" href="/assets/js/33.92368679.js"><link rel="prefetch" href="/assets/js/34.31b589e5.js"><link rel="prefetch" href="/assets/js/35.5236bd4e.js"><link rel="prefetch" href="/assets/js/36.6e857b09.js"><link rel="prefetch" href="/assets/js/37.409e4231.js"><link rel="prefetch" href="/assets/js/38.779595e7.js"><link rel="prefetch" href="/assets/js/39.bbf5a6fb.js"><link rel="prefetch" href="/assets/js/4.4885d378.js"><link rel="prefetch" href="/assets/js/40.cc8c2002.js"><link rel="prefetch" href="/assets/js/41.574827e9.js"><link rel="prefetch" href="/assets/js/42.1c53ccab.js"><link rel="prefetch" href="/assets/js/43.0a1443d7.js"><link rel="prefetch" href="/assets/js/44.6b48c6eb.js"><link rel="prefetch" href="/assets/js/45.912e4128.js"><link rel="prefetch" href="/assets/js/46.07d596b0.js"><link rel="prefetch" href="/assets/js/47.aa5ef569.js"><link rel="prefetch" href="/assets/js/48.653219ec.js"><link rel="prefetch" href="/assets/js/49.ca08fe38.js"><link rel="prefetch" href="/assets/js/5.72227f9f.js"><link rel="prefetch" href="/assets/js/50.abf9c43a.js"><link rel="prefetch" href="/assets/js/51.09f33e00.js"><link rel="prefetch" href="/assets/js/52.1fca5667.js"><link rel="prefetch" href="/assets/js/53.e738e971.js"><link rel="prefetch" href="/assets/js/54.18bf1354.js"><link rel="prefetch" href="/assets/js/55.b24cd945.js"><link rel="prefetch" href="/assets/js/56.dfaf0011.js"><link rel="prefetch" href="/assets/js/57.82e8a5f7.js"><link rel="prefetch" href="/assets/js/58.76b4a75b.js"><link rel="prefetch" href="/assets/js/59.06d7e59b.js"><link rel="prefetch" href="/assets/js/6.1a982d01.js"><link rel="prefetch" href="/assets/js/60.77b63e2d.js"><link rel="prefetch" href="/assets/js/61.d297fda7.js"><link rel="prefetch" href="/assets/js/62.d91c0054.js"><link rel="prefetch" href="/assets/js/63.1a8fc45f.js"><link rel="prefetch" href="/assets/js/64.f035daaa.js"><link rel="prefetch" href="/assets/js/65.3e8dafcb.js"><link rel="prefetch" href="/assets/js/66.3cb5565a.js"><link rel="prefetch" href="/assets/js/67.3d11cc1a.js"><link rel="prefetch" href="/assets/js/68.5ee4d993.js"><link rel="prefetch" href="/assets/js/69.3fc74ef2.js"><link rel="prefetch" href="/assets/js/7.c4c59dac.js"><link rel="prefetch" href="/assets/js/8.4d197760.js"><link rel="prefetch" href="/assets/js/9.26768116.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f7236f4b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Hewie博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/introduce/" class="nav-link">介绍</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大前端" class="dropdown-title"><span class="title">大前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/es6/" class="nav-link">ES6</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/mini_program/" class="nav-link">小程序</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cpp/" class="nav-link">C++</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">计算机网络</a></li><li class="dropdown-item"><!----> <a href="/operation/" class="nav-link">操作系统</a></li><li class="dropdown-item"><!----> <a href="/database/" class="nav-link">数据库</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">Linux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法修炼" class="dropdown-title"><span class="title">算法修炼</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>算法和数据结构</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/common/" class="nav-link">常用算法</a></li><li class="dropdown-subitem"><a href="/algorithm/sword_offer/" class="nav-link">剑指offer</a></li><li class="dropdown-subitem"><a href="/algorithm/leetcode/" class="nav-link">LeetCode</a></li><li class="dropdown-subitem"><a href="/algorithm/code_interview/" class="nav-link">程序员代码面试指南</a></li></ul></li><li class="dropdown-item"><h4>设计模式</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/design_pattem/" class="nav-link router-link-active">设计模式</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/graduation/" class="nav-link">毕设</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随手记" class="dropdown-title"><span class="title">随手记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/share/" class="nav-link">每周分享</a></li><li class="dropdown-item"><!----> <a href="/more/bookmark/" class="nav-link">书签</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div> <a href="https://github.com/Hewie8023/HewieBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/introduce/" class="nav-link">介绍</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="大前端" class="dropdown-title"><span class="title">大前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/es6/" class="nav-link">ES6</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/mini_program/" class="nav-link">小程序</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/cpp/" class="nav-link">C++</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">计算机网络</a></li><li class="dropdown-item"><!----> <a href="/operation/" class="nav-link">操作系统</a></li><li class="dropdown-item"><!----> <a href="/database/" class="nav-link">数据库</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">Linux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法修炼" class="dropdown-title"><span class="title">算法修炼</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>算法和数据结构</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/common/" class="nav-link">常用算法</a></li><li class="dropdown-subitem"><a href="/algorithm/sword_offer/" class="nav-link">剑指offer</a></li><li class="dropdown-subitem"><a href="/algorithm/leetcode/" class="nav-link">LeetCode</a></li><li class="dropdown-subitem"><a href="/algorithm/code_interview/" class="nav-link">程序员代码面试指南</a></li></ul></li><li class="dropdown-item"><h4>设计模式</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/algorithm/design_pattem/" class="nav-link router-link-active">设计模式</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/graduation/" class="nav-link">毕设</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随手记" class="dropdown-title"><span class="title">随手记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/more/share/" class="nav-link">每周分享</a></li><li class="dropdown-item"><!----> <a href="/more/bookmark/" class="nav-link">书签</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div> <a href="https://github.com/Hewie8023/HewieBlog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>设计模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/algorithm/design_pattem/" class="sidebar-link">README</a></li><li><a href="/algorithm/design_pattem/creative.html" class="active sidebar-link">创建型模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#单例模式" class="sidebar-link">单例模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#饿汉式单例" class="sidebar-link">饿汉式单例</a></li><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#懒汉式单例" class="sidebar-link">懒汉式单例</a></li></ul></li><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#简单工厂模式" class="sidebar-link">简单工厂模式</a></li><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#工厂方法" class="sidebar-link">工厂方法</a></li><li class="sidebar-sub-header"><a href="/algorithm/design_pattem/creative.html#抽象工厂模式" class="sidebar-link">抽象工厂模式</a></li></ul></li><li><a href="/algorithm/design_pattem/structural.html" class="sidebar-link">结构型模式</a></li><li><a href="/algorithm/design_pattem/behavioral.html" class="sidebar-link">行为型模式</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p></p><div class="table-of-contents"><ul><li><a href="#单例模式">单例模式</a><ul><li><a href="#饿汉式单例">饿汉式单例</a></li><li><a href="#懒汉式单例">懒汉式单例</a></li></ul></li><li><a href="#简单工厂模式">简单工厂模式</a></li><li><a href="#工厂方法">工厂方法</a></li><li><a href="#抽象工厂模式">抽象工厂模式</a></li></ul></div><p></p> <h2 id="单例模式"><a href="#单例模式" aria-hidden="true" class="header-anchor">#</a> 单例模式</h2> <p>单例模式可以保证系统中只有一个类只有一个实例,并提供一个访问它的全局访问点,该实例被所有程序模块共享。</p> <p>单例模式的要点有三个：</p> <ol><li>单例类只能有一个实例</li> <li>它必须自行创建这个实例</li> <li>它必须自行向整个系统提供提供这个实例。</li></ol> <p>从具体实现角度来说,就是以下三点:</p> <ol><li>单例模式的类只提供私有的构造函数</li> <li>类定义中含有一个该类的静态私有对象</li> <li>该类提供了一个静态的公有的函数用于创建或获取它本身的静态私有对象</li></ol> <p><strong>单例模式的优点:</strong></p> <ol><li>在内存中只有一个对象,节省内存空间</li> <li>避免频繁的创建销毁对象,可以提高性能</li> <li>避免对共享资源的多重占用</li> <li>可以全局访问</li></ol> <p><strong>单例模式的适用场景:</strong></p> <ol><li>需要频繁实例化然后销毁的对象</li> <li>创建对象耗时过多或者耗资源过多,但又经常用到的对象</li> <li>有状态的工具类对象</li> <li>频繁访问数据库或文件的对象</li> <li>以及其他要求只有一个对象的场景</li></ol> <h3 id="饿汉式单例"><a href="#饿汉式单例" aria-hidden="true" class="header-anchor">#</a> 饿汉式单例</h3> <p>饿汉式单例在单例类被加载时就实例化一个对象交给自己的引用</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Singleon</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+	<span class="token function">Singleon</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Singleon()&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">static</span> Singleon<span class="token operator">*</span> instance<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token keyword">static</span> Singleon<span class="token operator">*</span> <span class="token function">GetSingleon</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">static</span> Singleon<span class="token operator">*</span> <span class="token function">Destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">delete</span> instance<span class="token punctuation">;</span>
+		instance <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="懒汉式单例"><a href="#懒汉式单例" aria-hidden="true" class="header-anchor">#</a> 懒汉式单例</h3> <p>懒汉式单例可能会有线程安全,异常安全问题</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">CSingleton</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token function">CSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//构造函数是私有的</span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">static</span> CSingleton <span class="token operator">*</span> <span class="token function">GetInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> CSingleton <span class="token operator">*</span>m_pInstance<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>m_pInstance <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token comment">//判断是否第一次调用</span>
+            m_pInstance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">CSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> m_pInstance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>考虑到线程安全和异常安全,实现代码如下:</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code>std<span class="token operator">::</span>mutex mt<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Singleton</span>  
+<span class="token punctuation">{</span>  
+<span class="token keyword">private</span><span class="token operator">:</span>  
+    <span class="token keyword">static</span> Singleton<span class="token operator">*</span> m_instance<span class="token punctuation">;</span>  
+    <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+<span class="token keyword">public</span><span class="token operator">:</span>  
+    <span class="token keyword">static</span> Singleton<span class="token operator">*</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+  
+Singleton<span class="token operator">*</span> Singleton<span class="token operator">::</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> m_instance<span class="token punctuation">)</span>  
+    <span class="token punctuation">{</span>  
+        mt<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> m_instance<span class="token punctuation">)</span>  
+        <span class="token punctuation">{</span>  
+            m_instance <span class="token operator">=</span> <span class="token keyword">new</span> Singleton<span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+        mt<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>  
+    <span class="token keyword">return</span> m_instance<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="简单工厂模式"><a href="#简单工厂模式" aria-hidden="true" class="header-anchor">#</a> 简单工厂模式</h2> <p><strong>Intent</strong></p> <p>在创建一个对象时不向客户暴露内部的细节，并提供一个创建对象的通用接口。</p> <p><strong>Class Diagram</strong></p> <p>简单工厂模式的实例化操作单独放在一个类中，这个类就是简单工厂类，让简单工厂类来决定应该用哪个具体子类来实例化。</p> <p>这个做能够把客户类和具体子类的实现解耦，客户类不再需要知道有哪些子类以及应当实例化哪个子类。客户类往往有多个，如果不使用简单工厂，那么所有客户类都要知道所有子类的细节。而且一旦子类发生改变，例如增加子类，那么所有的客户类都要进行改变。</p> <p>比如一个要实现一个计算器功能，可使用如下方法。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//Operation运算类</span>
+<span class="token keyword">class</span> <span class="token class-name">Operation</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> numA <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> numB <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> <span class="token function">getNumA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>   
+        <span class="token keyword">return</span> numA<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">setNumA</span><span class="token punctuation">(</span><span class="token keyword">double</span> numA<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>numA <span class="token operator">=</span> numA<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">double</span> <span class="token function">getNumB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>   
+        <span class="token keyword">return</span> NumB<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">setNumB</span><span class="token punctuation">(</span><span class="token keyword">double</span> NumB<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>NumB <span class="token operator">=</span> NumB<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">double</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//加减乘除类</span>
+<span class="token keyword">class</span> <span class="token class-name">OperationAdd</span><span class="token operator">:</span><span class="token keyword">public</span> Operation
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>    
+        <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> numA <span class="token operator">+</span> numB<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OperationSub</span><span class="token operator">:</span><span class="token keyword">public</span> Operation
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>    
+        <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> numA <span class="token operator">-</span> numB<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OperationMul</span><span class="token operator">:</span><span class="token keyword">public</span> Operation
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>    
+        <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> numA <span class="token operator">*</span> numB<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OperationDiv</span><span class="token operator">:</span><span class="token keyword">public</span> Operation
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>    
+        <span class="token keyword">double</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>numB <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        result <span class="token operator">=</span> numA <span class="token operator">/</span> numB<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//简单工厂类</span>
+<span class="token keyword">class</span> <span class="token class-name">OperationFactory</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">static</span> Operation <span class="token function">createOpration</span><span class="token punctuation">(</span>string operation<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Operation oper <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>operation<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;+&quot;</span><span class="token operator">:</span>
+                oper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">OperationAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;-&quot;</span><span class="token operator">:</span>
+                oper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">OperationSub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;*&quot;</span><span class="token operator">:</span>
+                oper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">OperationMul</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&quot;/&quot;</span><span class="token operator">:</span>
+                oper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">OperationDiv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> oper<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//客户端代码</span>
+Operation oper<span class="token punctuation">;</span>
+oper <span class="token operator">=</span> OperationFactory<span class="token operator">::</span><span class="token function">createOpration</span><span class="token punctuation">(</span><span class="token string">&quot;+&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+oper<span class="token punctuation">.</span>numA <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+oper<span class="token punctuation">.</span>NumB <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> result <span class="token operator">=</span> oper<span class="token punctuation">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="工厂方法"><a href="#工厂方法" aria-hidden="true" class="header-anchor">#</a> 工厂方法</h2> <p><strong>Intent</strong></p> <p>定义了一个创建对象的接口，但由子类决定要实例化哪个类。工厂方法把实例化操作推迟到子类。</p> <p><strong>Class Diagram</strong></p> <p>在简单工厂中，创建对象的是另一个类，而在工厂方法中，是由子类来创建对象。</p> <p>简单工厂模式的最大优点在于工厂类中包含了必要的逻辑判断，根据客户端的选择条件动态实例化相关的类，对于客户端来说，去除了与具体产品的依赖。如上面的计算器，让客户端不用管该用哪个类的实例，只需把“+”给工厂，工厂自动就给出了相应的实例，客户端只要去做运算就可以了，不同的实例会实现不同的运算。但是，如果要加一个‘求M的N次方’的功能，我们一定需要给运算工厂类的方法里加‘case’的分支条件，这就需要修改原有的类。违背了<strong>开放-封闭原则</strong>。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//工厂接口</span>
+<span class="token keyword">class</span> <span class="token class-name">IFactory</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> Operation <span class="token function">createOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">AddFactory</span> <span class="token operator">:</span> <span class="token keyword">public</span> IFactory
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    Operation <span class="token function">createOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">OperationAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//其余运算工厂类似...</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//客户端</span>
+IFactory <span class="token operator">*</span>operFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">AddFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Operation <span class="token operator">*</span>oper <span class="token operator">=</span> operFactory<span class="token operator">-&gt;</span><span class="token function">createOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+oper<span class="token punctuation">.</span>numA <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+oper<span class="token punctuation">.</span>numB <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> result <span class="token operator">=</span> oper<span class="token operator">-&gt;</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>工厂方法模式实现时，客户端需要决定实例化哪一个工厂来实现运算类，选择判断的问题还是存在的，也就是说，工厂方法把简单工厂的内部逻辑判断移到了客户端代码来进行。若要加功能，简单公共模式是要修改工厂类，而工厂模式是修改客户端。</p> <h2 id="抽象工厂模式"><a href="#抽象工厂模式" aria-hidden="true" class="header-anchor">#</a> 抽象工厂模式</h2> <p><strong>Intent</strong></p> <p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p> <p><strong>Class Diagram</strong></p> <p>工厂方法模式 要求产品必须为同一类型，也就是说，BBA 只能生产汽车，要生产其他产品（例如：自行车）是不行的，这显然限制了产品的扩展。为了解决这个问题，抽象工厂模式出现了 - 将产品归类分组，然后将好几组产品构成一族。每个工厂负责生产一族产品，而工厂中的每个方法负责生产一种类型的产品。</p> <p>这样，客户端只需要创建具体工厂的实例，然后调用工厂对象的工厂方法就可以得到所需要的产品对象。</p> <p>需要有两个产品 - 汽车和自行车：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//创建抽象产品</span>
+<span class="token comment">// 汽车接口</span>
+<span class="token keyword">class</span> <span class="token class-name">ICar</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 汽车名称</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 自行车接口</span>
+<span class="token keyword">class</span> <span class="token class-name">IBike</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 自行车名称</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//创建具体产品</span>
+<span class="token comment">/********** 汽车 **********/</span>
+<span class="token comment">// 奔驰</span>
+<span class="token keyword">class</span> <span class="token class-name">BenzCar</span> <span class="token operator">:</span> <span class="token keyword">public</span> ICar
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Benz Car&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 宝马</span>
+<span class="token keyword">class</span> <span class="token class-name">BmwCar</span> <span class="token operator">:</span> <span class="token keyword">public</span> ICar
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Bmw Car&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 奥迪</span>
+<span class="token keyword">class</span> <span class="token class-name">AudiCar</span> <span class="token operator">:</span> <span class="token keyword">public</span> ICar
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    std<span class="token operator">::</span>string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Audi Car&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/********** 自行车 **********/</span>
+<span class="token comment">// 奔驰</span>
+<span class="token keyword">class</span> <span class="token class-name">BenzBike</span> <span class="token operator">:</span> <span class="token keyword">public</span> IBike
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Benz Bike&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 宝马</span>
+<span class="token keyword">class</span> <span class="token class-name">BmwBike</span> <span class="token operator">:</span> <span class="token keyword">public</span> IBike
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Bmw Bike&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 奥迪</span>
+<span class="token keyword">class</span> <span class="token class-name">AudiBike</span> <span class="token operator">:</span> <span class="token keyword">public</span> IBike
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string <span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Audi Bike&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//创建抽象工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">AFactory</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">enum</span> <span class="token class-name">FACTORY_TYPE</span> <span class="token punctuation">{</span>
+        BENZ_FACTORY<span class="token punctuation">,</span>  <span class="token comment">// 奔驰工厂</span>
+        BMW_FACTORY<span class="token punctuation">,</span>  <span class="token comment">// 宝马工厂</span>
+        AUDI_FACTORY  <span class="token comment">// 奥迪工厂</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">virtual</span> ICar<span class="token operator">*</span> <span class="token function">CreateCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 生产汽车</span>
+    <span class="token keyword">virtual</span> IBike<span class="token operator">*</span> <span class="token function">CreateBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">// 生产自行车</span>
+    <span class="token keyword">static</span> AFactory<span class="token operator">*</span> <span class="token function">CreateFactory</span><span class="token punctuation">(</span>FACTORY_TYPE factory<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 创建工厂</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 创建工厂</span>
+AFactory<span class="token operator">*</span> AFactory<span class="token operator">::</span><span class="token function">CreateFactory</span><span class="token punctuation">(</span>FACTORY_TYPE factory<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    AFactory <span class="token operator">*</span>pFactory <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>factory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> FACTORY_TYPE<span class="token operator">::</span>BENZ_FACTORY<span class="token operator">:</span>  <span class="token comment">// 奔驰工厂</span>
+        pFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">BenzFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> FACTORY_TYPE<span class="token operator">::</span>BMW_FACTORY<span class="token operator">:</span>  <span class="token comment">// 宝马工厂</span>
+        pFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">BmwFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> FACTORY_TYPE<span class="token operator">::</span>AUDI_FACTORY<span class="token operator">:</span>  <span class="token comment">// 奥迪工厂</span>
+        pFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">AudiFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> pFactory<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//创建具体工厂</span>
+<span class="token comment">// 奔驰工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">BenzFactory</span> <span class="token operator">:</span> <span class="token keyword">public</span> AFactory
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ICar<span class="token operator">*</span> <span class="token function">CreateCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">BenzCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    IBike<span class="token operator">*</span> <span class="token function">CreateBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">BenzBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 宝马工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">BmwFactory</span> <span class="token operator">:</span> <span class="token keyword">public</span> AFactory
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ICar<span class="token operator">*</span> <span class="token function">CreateCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">BmwCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    IBike<span class="token operator">*</span> <span class="token function">CreateBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">BmwBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 奥迪工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">AudiFactory</span> <span class="token operator">:</span> <span class="token keyword">public</span> AFactory
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ICar<span class="token operator">*</span> <span class="token function">CreateCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">AudiCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    IBike<span class="token operator">*</span> <span class="token function">CreateBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">AudiBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//客户端</span>
+<span class="token comment">// 奔驰</span>
+AFactory <span class="token operator">*</span>pFactory <span class="token operator">=</span> AFactory<span class="token operator">::</span><span class="token function">CreateFactory</span><span class="token punctuation">(</span>AFactory<span class="token operator">::</span>FACTORY_TYPE<span class="token operator">::</span>BENZ_FACTORY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ICar <span class="token operator">*</span>pCar <span class="token operator">=</span> pFactory<span class="token operator">-&gt;</span><span class="token function">CreateCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+IBike <span class="token operator">*</span>pBike <span class="token operator">=</span> pFactory<span class="token operator">-&gt;</span><span class="token function">CreateBike</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Benz factory - Car: &quot;</span> <span class="token operator">&lt;&lt;</span> pCar<span class="token operator">-&gt;</span><span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Benz factory - Bike: &quot;</span> <span class="token operator">&lt;&lt;</span> pBike<span class="token operator">-&gt;</span><span class="token function">Name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/Hewie8023/HewieBlog/edit/master/docs/algorithm/design_pattem/creative.md" target="_blank" rel="noopener noreferrer">编辑文档~</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2019-11-1 15:25:15</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/algorithm/design_pattem/" class="prev router-link-active">README</a></span> <span class="next"><a href="/algorithm/design_pattem/structural.html">结构型模式</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.ac521fa5.js" defer></script><script src="/assets/js/2.4dd89565.js" defer></script><script src="/assets/js/17.b20c0604.js" defer></script><script src="/assets/js/3.ee0ff96a.js" defer></script>
+  </body>
+</html>
